@@ -1,0 +1,1 @@
+python3 guideline_against_jailbreak_inference.py --model vicuna-13B --input_path input_path --max_length 4096 --batch_size 1 --output_dir output_path

@@ -1,0 +1,1 @@
+python3 llama2_7b_guideline_inference_wo_sys.py --model guideline_LLM_turn2 --benchmark safe_turn3 --checkpoint checkpoint --max_length 4096 --batch_size 1 --output_dir output_path
