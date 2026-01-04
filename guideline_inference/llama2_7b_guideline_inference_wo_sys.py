@@ -14,7 +14,7 @@ def init_parser():
         "--model",
         type=str,
         default="guideline_LLM",
-        help="Select model name(llama2-7B-chat, vicuna)"
+        help="Select model name"
     )
     parser.add_argument(
         "--benchmark",
