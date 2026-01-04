@@ -25,7 +25,7 @@ def init_parser():
     parser.add_argument(
         "--checkpoint",
         type=str,
-        default="/mnt/dolphinfs/hdd_pool/docker/user/hadoop-aipnlp/zhangshaoqing05/models/huggingface__meta-llama__llama-2-7b-chat-hf",
+        default="llama-2-7b-chat-hf",
         help="Select one jailbreak prompt benchmark"
     )
     parser.add_argument(
