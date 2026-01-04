@@ -14,7 +14,7 @@ def init_parser():
         "--model",
         type=str,
         default="guideline_LLM",
-        help="Select model for inference(llama2-7B-chat, vicuna)"
+        help="Select model name(llama2-7B-chat, vicuna)"
     )
     parser.add_argument(
         "--benchmark",
@@ -26,13 +26,13 @@ def init_parser():
         "--checkpoint",
         type=str,
         default="llama-2-7b-chat-hf",
-        help="Select one jailbreak prompt benchmark"
+        help="Select model for inference."
     )
     parser.add_argument(
         "--mode",
         type=str,
         default="turn1",
-        help="The GuidelineLLM version"
+        help="The GuidelineLLM version."
     )
     parser.add_argument("--output_dir", type=str, default="./GuidelineLLM_generate_result", help="Output inference result to a fold, named by benchmark.")
     parser.add_argument("--max_length", type=int, default=2048, help="Maximum input sequence length.")
