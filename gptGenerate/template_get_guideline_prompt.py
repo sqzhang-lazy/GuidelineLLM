@@ -80,17 +80,19 @@ def load_gptteacher_data(input_dir):
     return datas
     
 
-def gpt_api(input_dir, output_dir):
+def gpt_api(input_dir, output_dir, mode="jailbreak"):
     df_jailbreak_dict = {}
     # messages=[
     #     {"role": "system", "content": SYSTEM_PROMPT}
     # ]
-    # messages=[
-    #     {"role": "system", "content": ATTACK_SYSTEM_PROMPT}
-    # ]
-    messages=[
-        {"role": "system", "content": SAFE_SYSTEM_PROMPT}
-    ]
+    if mode == "jailbreak":
+        messages=[
+            {"role": "system", "content": ATTACK_SYSTEM_PROMPT}
+        ]
+    elif mode == "safe":
+        messages=[
+            {"role": "system", "content": SAFE_SYSTEM_PROMPT}
+        ]
     token_number = 0
 
 
@@ -99,9 +101,14 @@ def gpt_api(input_dir, output_dir):
     for jailbreak_prompt in tqdm(jailbreak_prompts):
         
         guideline_messages = messages.copy()
-        guideline_messages.append(
-            {"role": "user", "content": "Safe Question: "+jailbreak_prompt}
-        )
+        if mode == "jailbreak":
+            guideline_messages.append(
+                {"role": "user", "content": "Jailbreak Question: "+jailbreak_prompt}
+            )
+        elif mode == "safe":
+            guideline_messages.append(
+                {"role": "user", "content": "Safe Question: "+jailbreak_prompt}
+            )
         chat_completion = client.chat.completions.create(
             messages=guideline_messages,
             model="gpt-3.5-turbo-0125",
