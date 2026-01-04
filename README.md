@@ -55,6 +55,18 @@ This framework provides a comprehensive pipeline for generating jailbreak attack
 ]
 ```
 
+## Data Preparation
+
+To prepare custom datasets:
+
+1. **Attack Templates:** Define jailbreak techniques in `gptGenerate/Attack_Template.json`
+2. **Harmful Scenarios:** Define attack scenarios in `gptGenerate/guard_policy.json`
+3. **Generate Data:** Use the scripts in `gptGenerate/` to create initial training data:
+   - `template_get_attack_prompt.py`: Creates attack queries
+   - `template_attack2jailbreak_prompt.py`: Converts attacks to jailbreaks
+   - `template_get_guideline_prompt.py`: Generates defensive guidelines
+
+
 
 ## Model Fine-tuning
 
@@ -129,17 +141,6 @@ cd guideline_inference
 cd jailbreak_inference
 ./run_submit_jailbreakLLM_inference.sh
 ```
-
-## Data Preparation
-
-To prepare custom datasets:
-
-1. **Attack Templates:** Define jailbreak techniques in `gptGenerate/Attack_Template.json`
-2. **Harmful Scenarios:** Define attack scenarios in `gptGenerate/guard_policy.json`
-3. **Generate Data:** Use the scripts in `gptGenerate/` to create initial training data:
-   - `template_get_attack_prompt.py`: Creates attack queries
-   - `template_attack2jailbreak_prompt.py`: Converts attacks to jailbreaks
-   - `template_get_guideline_prompt.py`: Generates defensive guidelines
 
 
 ## Output Models
