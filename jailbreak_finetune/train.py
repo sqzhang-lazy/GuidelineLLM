@@ -47,13 +47,13 @@ def init_parser():
         type=str,
         default="llama2-7B-chat",
         choices=["llama2-7B-chat", "vicuna-7B", "vicuna-13B", "llama2-7B"],
-        help="Select model for inference(llama2-7B-chat, vicuna)"
+        help="Select model for finetune(llama2-7B-chat, vicuna)"
     )
     parser.add_argument(
         "--checkpoint_dir",
         type=str,
         default="",
-        help="Select one jailbreak prompt benchmark"
+        help="The input path to load the model."
     )
     parser.add_argument("--input_path", type=str, default="", help="Input Data")
     parser.add_argument("--save_dir", type=str, default="", help="Checkpoints save dir.")
